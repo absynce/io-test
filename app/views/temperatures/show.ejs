@@ -1,0 +1,26 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="<%- pathTo.temperatures %>">temperatures</a> <span class="divider">/</span></li>
+    <li class="active"><a href="#">Details of temperature</a></li>
+</ul>
+
+<div class="page-header">
+    <h1>Details of temperature</h1>
+</div>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr><th>value</th><td><%= temperature.value %></td></tr>
+
+        <tr><th>readingOn</th><td><%= temperature.readingOn %></td></tr>
+
+        <tr><th>timestamp</th><td><%= temperature.timestamp %></td></tr>
+    </tbody>
+</table>
+
+<div class="well">
+    <%- link_to('<i class="icon-edit icon-white"></i> Edit', pathTo.edit_temperature(temperature), {class: 'btn btn-primary'}) %>
+    <%- link_to('<i class="icon-remove icon-white"></i> Delete', pathTo.temperature(temperature), {class: 'btn btn-danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'}) %>
+    or
+    <%- link_to('Back to index', pathTo.temperatures) %>
+</div>
